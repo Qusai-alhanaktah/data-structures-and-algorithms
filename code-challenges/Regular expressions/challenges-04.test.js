@@ -13,10 +13,11 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-    if (isNaN(input)) {
-        return true;
-    } else if (typeof(input)) return true;
-    else if (typeof(input) === "string") return false;
+    // if (isNaN(input))  return true;
+    // else if (typeof(input)) return true;
+    // else if (typeof(input) === "string") return false;
+    let result = /[0-9]/g;
+    return result.test(input)
   // Solution code here...
 };
 
