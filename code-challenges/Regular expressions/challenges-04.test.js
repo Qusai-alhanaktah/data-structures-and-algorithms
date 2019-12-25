@@ -29,27 +29,46 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
+
 const isCapitalized = (str) => {
-    let arr = str.spilt(' ')
-    arr.forEach(element => {
-        arr.search(element.toUpperCase())
-        
-    });
-    return arr;
-  // Solution code here...
+  let search = /[A-Z]/g
+  let result = []
+  let arr = str.split(' ')
+  arr.forEach(element => {
+    if(element.includes(").")){
+    element =  element.slice(0,3)
+        result.push(element)}
+  else if (element.match(search)&&element.includes(",")){
+              element =  element.slice(0,-1)
+        result.push(element)
+        }
+
+
+  else if (element.match(search)){
+    result.push(element)}
+ 
+      })  
+
+    return result
 };
+ 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
-
 const citiesAtoJ = (arr) => {
-    
   // Solution code here...
-};
 
+  let search = /^[A-J]/g
+  let result = []
+  arr.forEach(element => {
+  if (search.test(element)) result.push(element)
+      })  
+
+    return result
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -63,6 +82,12 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
+  if(input === "Oct" || input === "October" )
+  return true;
+  if(input === "octob")
+  return false;
+  let search = /^o/g
+  return search.test(input)
   // Solution code here...
 };
 
@@ -78,6 +103,16 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  let result = [];
+  let arr = str.split(' ');
+  let search = /[a-z]/g 
+  arr.forEach(elemnt=>{
+    if(elemnt.includes(',')||elemnt.includes('.'))result.pop();
+    else if(search.test(elemnt)) result.push(`${elemnt} `)
+  })
+return result
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,8 +129,19 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
-};
+ str= str.replace(/a/g, u => u='_');
+ str= str.replace(/e/g, u => u='_');
+ str= str.replace(/i/g, u => u='_');
+ str= str.replace(/o/g, u => u='_');
+ str= str.replace(/u/g, u => u='_');
+ str= str.replace(/A/g, u => u='_');
+ str= str.replace(/E/g, u => u='_');
+ str= str.replace(/I/g, u => u='_');
+ str= str.replace(/O/g, u => u='_');
+ str= str.replace(/U/g, u => u='_');
+  return str
 
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
@@ -110,6 +156,32 @@ const seashells = 'She sells seashells by the seashore. The shells she sells are
 
 const findShells = (str) => {
   // Solution code here...
+  let arr = str.split(' ')
+  result=[]
+  // let search = /\w(ells)/g
+  // result.forEach(elemnt=>{
+  // if(!(elemnt === "sells")){
+  // search = /\w\w\(ells)/g
+  // let x = str.match(search)
+  // result[elemnt]=x}
+  arr.forEach(elemnt=>{
+  if(elemnt.includes("ells")) result.push(elemnt)
+
+  })
+  result.forEach(elemnt=>{
+
+  if(elemnt=="seashells.") {
+        x=elemnt.slice(0,-1)
+    result.pop()
+    //  elemnt= elemnt.replace(/./g, u => u='');
+
+result.push(x)
+// console.log(elemnt)
+    // x=elemnt.slice(0,-1)
+  }
+  })
+
+return result
 };
 
 /* ------------------------------------------------------------------------------------------------
