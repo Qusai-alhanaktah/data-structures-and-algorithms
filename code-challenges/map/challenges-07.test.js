@@ -12,6 +12,11 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 
 const forLoopTwoToThe = (arr) => {
   // Solution code here...
+  let result =[]
+  for(let i=0;i<arr.length;i++){
+    result.push(Math.pow(2,arr[i]))
+  }
+  return result
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,8 +26,14 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
-};
+    // Solution code here...
+    let result =[]
+  arr.forEach(elemnt=>{
+     result.push(Math.pow(2,elemnt))
+  }) 
+    return result
+  };
+  
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -32,6 +43,10 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 
 const mapTwoToThe = (arr) => {
   // Solution code here...
+  let powerNumbers = arr.map((value,idx)=>{
+    return Math.pow(2,value)
+  })
+  return powerNumbers
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,8 +61,11 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = (arr) => {
   // Solution code here...
+let result = arr.map((value,idx)=>{
+  return value.charCodeAt()
+})
+  return result
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -60,8 +78,14 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = (arr) => {
   // Solution code here...
+  let result = arr.map((val,idx)=>{
+    if(!isNaN(val)){
+      if(val%2==0)return "even";
+      else if(val%2!==0) return "odd";
+    }else return "N/A"
+  })
+  return result
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
