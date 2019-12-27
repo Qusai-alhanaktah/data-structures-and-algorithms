@@ -13,6 +13,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
+  return  Object.keys(obj)
   // Solution code here...
   
 };
@@ -70,11 +71,13 @@ let characters = [
 ];
 
 const getHouses = (arr) => {
-  let houses = [];
-  // Solution code here...
-  return houses;
-};
-
+   // Solution code here...
+   let result =[]
+   Object.values(arr).forEach(property=>{
+     result.push(property.house)
+   })
+   return result
+ };
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -87,8 +90,14 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
+
+
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  for(let i=0;i<Object.values(arr).length;i++){
+    if (arr[i].name== character) return true;
+}
+      return false;
 
 };
 
@@ -101,8 +110,13 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
-};
+ 
+  for(let i=0;i<Object.entries(arr).length;i++){
+          if (arr[i].name== character) return true;
+    }
+            return false;
+  
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -110,10 +124,14 @@ CHALLENGE 5
 Write a function named totalCharacters that takes in an array and returns the number of characters in the array.
 ------------------------------------------------------------------------------------------------ */
 
-const totalCharacters = (arr) => {
-  // Solution code here...
-};
 
+const totalCharacters = (arr) => {
+  let vote = 0;
+ 
+Object.keys(arr).forEach(property=>{
+  arr[property].vote++})
+          return vote;
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
@@ -194,7 +212,7 @@ describe('Testing challenge 4', () => {
   });
 
   test('It should return false to characters who do not have children', () => {
-    expect(hasChildrenEntries(characters, 'Jon S.')).toBeFalsy();
+    expect(hasChildrenEntries(characters, 'Sansa')).toBeFalsy();
   });
 });
 
