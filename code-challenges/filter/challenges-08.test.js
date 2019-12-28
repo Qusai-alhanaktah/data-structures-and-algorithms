@@ -14,6 +14,7 @@ const oddValues = (arr) => {
       return (val%2)
   })
   return odds
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,6 +38,7 @@ const filterStringsWithVowels = (arr) => {
     return result
   };
 
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -53,6 +55,8 @@ const notInFirstArray = (forbiddenValues, arr) => {
     })
     return result
   };
+
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -101,6 +105,7 @@ const getBaseStatGreaterThan = (arr, minBaseStat) => {
     })
     return result
   };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -117,6 +122,7 @@ const getStatName = (arr, minBaseStat) => {
    })
    return result
  };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -176,6 +182,7 @@ const getCharactersWithoutChildren = (arr) => {
     })
     return result
   };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
