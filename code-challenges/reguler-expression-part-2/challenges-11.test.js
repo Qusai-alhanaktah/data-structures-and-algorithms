@@ -9,8 +9,13 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
-};
+    // Solution code here.....
+    let search = /[0-9]/g
+    let str = pin.toString()
+    let arr = str.split('')
+    if(search.test(pin)&& arr.length==4) return true;
+    else return false;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
