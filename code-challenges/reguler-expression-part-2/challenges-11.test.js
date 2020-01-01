@@ -35,8 +35,17 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  let searchNum =/[0-9]/g
+  let search =/@/g
+  let searchCom = /.com$/
+  let searchOrg = /.org$/
+  let searchNet = /.net$/
+if(search.test(email)){
+if(searchOrg.test(email)||searchNet.test(email)||searchCom.test(email)){
+  return true
+}else return false
+}else return false
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -60,7 +69,20 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+    let searchNum =/[0-9]/g
+  let search1 =/_/g
+  let search2 = /./g
+  // let search3 = /--/g
+if(searchNum.test(phoneNumber)){
+
+if(search1.test(phoneNumber)||search2.test(phoneNumber))
+  return false
+else return true
+
+}else return false
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4 - Stretch Goal
