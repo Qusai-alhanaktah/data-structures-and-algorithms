@@ -10,6 +10,11 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  let odds = arr.filter((val,idx)=>{
+      return (val%2)
+  })
+  return odds
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,8 +29,14 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
-};
+    // Solution code here...
+    let result = arr.filter((val,idx)=>{
+      if(val.includes("a") || val.includes("e") || val.includes("o") || val.includes("i") || val.includes("u")){
+        return val
+      }
+    })
+    return result
+  };
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,10 +46,16 @@ Write a function named notInFirstArray that, given two arrays as input, uses fil
 
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
-
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
-};
+    // Solution code here...
+    let result = arr.filter((val,idx)=>{
+      if(!forbiddenValues.includes(val)){
+        return val
+      }
+    })
+    return result
+  };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -78,10 +95,16 @@ const snorlaxData = {
   name: 'snorlax',
   weight: 4600,
 };
-
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
-};
+    // Solution code here...
+  
+    let result = arr.filter((val,idx)=>{
+      if(val.baseStat>minBaseStat){
+        return val
+      }
+    })
+    return result
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -92,8 +115,14 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
-};
+    let result = arr.filter((val,idx)=>{
+     if(val.baseStat>minBaseStat){
+       return val.stat.name
+     }
+   })
+   return result
+ };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -145,8 +174,14 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
-};
+    // Solution code here...
+  
+    let result = arr.filter((val,idx)=>{
+         if(!val.children) return val
+      
+    })
+    return result
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
